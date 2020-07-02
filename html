@@ -1,0 +1,123 @@
+
+<div class="container">
+  <div class="card">
+    <h5 class="card-header">Lista de Clientes</h5>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="pl-5">CPF</th>
+            <th class="pl-5">Nome</th>
+            <th class="pl-5">Gender</th>
+            <th class="pl-5">Date</th>
+            <th class="pl-5">Email</th>
+            <th class="pl-5">Phone</th>
+            <th class="pl-5">Id</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let client of clients">
+            <td>{{ client.cpf }}</td>
+            <td>{{ client.nome }}</td>
+            <td>{{ client.sexo }}</td>
+            <td>{{ client.dat_nasc }}</td>
+            <td>{{ client.email }}</td>
+            <td>{{ client.phone }}</td>
+            <td>{{ client.id }}</td>
+            <button
+              type="button"
+              class="btn btn-warning"
+              (click)="editClient(client)"
+            >
+              Editar
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="deleteClients(client)"
+            >
+              Deletar
+            </button>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h5 class="card-header">Adicionar/Atualizar Cliente</h5>
+    <div class="card-body">
+      <form (ngSubmit)="saveClient(f)" #f="ngForm" novalidate>
+        <div class="form-group">
+          <label for="cpf">CPF</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Digite o CPF"
+            [(ngModel)]="client.cpf"
+            name="cpf"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="cpf">Nome</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Digite o Nome"
+            [(ngModel)]="client.nome"
+            name="nome"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="cpf">Sexo</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Digite o Sexo"
+            [(ngModel)]="client.sexo"
+            name="sexo"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="cpf">Date</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Digite o Date"
+            [(ngModel)]="client.dat_nasc"
+            name="dat_nasc"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="cpf">Email</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Digite o Email"
+            [(ngModel)]="client.email"
+            name="email"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="cpf">Phone</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Digite o Phone"
+            [(ngModel)]="client.phone"
+            name="phone"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+          Save
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
